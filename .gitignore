@@ -5,6 +5,9 @@
 # Keep folders
 !.keepme
 
+# Ignore every extension script or config in this folder
+/bash_scripts/extensions/*
+
 # Ignore variable dat
 /src/log/[a-z0-9-]*
 /src/data/www/php56
