@@ -1,0 +1,12 @@
+{
+  "name": "redCOMPONENT-COM/pr_testing",
+  "description": "A PR testing platform to automate the creation of a testing environment and speed-up Pull Request testing.",
+  "minimum-stability": "stable",
+  "license": "GPL2+",
+  "require": {
+    "php": ">=5.4",
+  },
+  "require-dev": {
+    "joomlatools/console": "v1.5"
+  }
+}

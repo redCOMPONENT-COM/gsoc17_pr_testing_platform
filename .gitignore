@@ -55,6 +55,8 @@
 /src/*.orig
 /src/*.rej
 
+##### composer #####
+vendor/*
 
 ######################################
 # Operating Systems
