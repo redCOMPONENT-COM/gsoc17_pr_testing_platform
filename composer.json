@@ -4,7 +4,7 @@
   "minimum-stability": "stable",
   "license": "GPL2+",
   "require": {
-    "php": ">=5.4",
+    "php": ">=5.4"
   },
   "require-dev": {
     "joomlatools/console": "v1.5"
