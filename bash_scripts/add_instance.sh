@@ -57,3 +57,12 @@ mysql --user=root --password=${DB_PASSWORD} --host=127.0.0.1 ${DB_NAME} < httpd/
 mysql --user=root --password=${DB_PASSWORD} --host=127.0.0.1 ${DB_NAME} < httpd/${INSTANCE_FOLDER}/htdocs/installation/sql/mysql/users.sql
 
 echo "Database ${DB_NAME} and tables created, and data imported to the database."
+
+#################################################################
+# Executes all scripts for extensions in the extensions folder
+
+if [ -d "extensions" ]; then
+  for extension in extensions/*.sh; do
+	./${extension%.*}.sh
+  done
+fi
