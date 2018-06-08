@@ -26,9 +26,9 @@ mkdir httpd/${INSTANCE_FOLDER}/htdocs
 
 if [ -z ${JOOMLA_VERSION} ]
 then
-	git clone --depth 1 -b ${JOOMLA_VERSION} --single-branch https://github.com/joomla/joomla-cms.git httpd/${INSTANCE_FOLDER}/htdocs
-else
 	cp -r /var/jenkins/workspace/${REPOSITORY}/origin/pr/${PR_ID}/merge/. httpd/${INSTANCE_FOLDER}/htdocs
+else
+	git clone --depth 1 -b ${JOOMLA_VERSION} --single-branch https://github.com/joomla/joomla-cms.git httpd/${INSTANCE_FOLDER}/htdocs
 fi
 
 echo "Joomla PR code placed in the instance folder in the php${PHP_VERSION} container."
