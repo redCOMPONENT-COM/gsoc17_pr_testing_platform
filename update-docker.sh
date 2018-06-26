@@ -22,21 +22,24 @@ docker pull cytopia/bind:${TAG}
 ### PHP
 ###
 TAG="$( grep '^[[:space:]]*image:.*\${PHP_SERVER' "${CWD}/docker-compose.yml" | sed 's/^.*://g' )"
-#docker pull cytopia/php-fpm-5.4:${TAG}
-#docker pull cytopia/php-fpm-5.5:${TAG}
-docker pull cytopia/php-fpm-5.6:${TAG}
-docker pull cytopia/php-fpm-7.0:${TAG}
-docker pull cytopia/php-fpm-7.1:${TAG}
+#docker pull devilbox/php-fpm:5.3-work
+#docker pull devilbox/php-fpm:5.4-work
+#docker pull devilbox/php-fpm:5.5-work
+#docker pull devilbox/php-fpm:5.6-work
+docker pull devilbox/php-fpm:7.0-work
+docker pull devilbox/php-fpm:7.1-work
+docker pull devilbox/php-fpm:7.2-work
+#docker pull devilbox/php-fpm:7.3-work
 #docker pull cytopia/hhvm-latest:${TAG}
 
 ###
 ### HTTPD
 ###
 TAG="$( grep '^[[:space:]]*image:.*\${HTTPD_SERVER' "${CWD}/docker-compose.yml" | sed 's/^.*://g' )"
-docker pull cytopia/nginx-stable:${TAG}
-#docker pull cytopia/nginx-mainline:${TAG}
-#docker pull cytopia/apache-2.2:${TAG}
-#docker pull cytopia/apache-2.4:${TAG}
+docker pull devilbox/nginx-stable:${TAG}
+#docker pull devilbox/nginx-mainline:${TAG}
+#docker pull devilbox/apache-2.2:${TAG}
+#docker pull devilbox/apache-2.4:${TAG}
 
 ###
 ### MYSQL
@@ -53,14 +56,12 @@ docker pull cytopia/mysql-5.6:${TAG}
 #docker pull cytopia/mariadb-10.3:${TAG}
 
 ###
-### PGSQL
+### REDIS
 ###
-#docker pull postgres:9.1
-#docker pull postgres:9.2
-#docker pull postgres:9.3
-#docker pull postgres:9.4
-#docker pull postgres:9.5
-docker pull postgres:9.6
+#docker pull redis:2.8
+#docker pull redis:3.0
+#docker pull redis:3.2
+docker pull redis:4.0
 
 ###
 ### MEMCACHED
@@ -81,4 +82,13 @@ docker pull postgres:9.6
 #docker pull memcached:1.4.34
 #docker pull memcached:1.4.35
 #docker pull memcached:1.4.36
+#docker pull memcached:1.4.37
+#docker pull memcached:1.4.38
+#docker pull memcached:1.4.39
+#docker pull memcached:1.5.0
+#docker pull memcached:1.5.1
+#docker pull memcached:1.5.2
+#docker pull memcached:1.5.3
+#docker pull memcached:1.5.4
+#docker pull memcached:1.5.5
 docker pull memcached:latest
