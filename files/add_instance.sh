@@ -6,6 +6,7 @@
 PR_ID=$1
 PHP_VERSION=$2
 INSTANCE_ID=$3
+JOOMLA_VERSION=$4
 
 DOMAIN="domain"
 REPOSITORY="repository"
@@ -21,9 +22,14 @@ mkdir httpd/${INSTANCE_FOLDER}/htdocs
 
 ####################################################################
 # Copies the PR code from jenkins workspace into the instance folder
+# or if joomla version is specified then pull that specific version
 
-cp -r /var/jenkins/workspace/${REPOSITORY}/origin/pr/${PR_ID}/merge/. httpd/${INSTANCE_FOLDER}/htdocs
-#git clone --depth 1 -b 4.0-dev --single-branch https://github.com/joomla/joomla-cms.git ${INSTANCE_FOLDER}/htdocs
+if [ -z ${JOOMLA_VERSION} ]
+then
+	cp -r /var/jenkins/workspace/${REPOSITORY}/origin/pr/${PR_ID}/merge/. httpd/${INSTANCE_FOLDER}/htdocs
+else
+	git clone --depth 1 -b ${JOOMLA_VERSION} --single-branch https://github.com/joomla/joomla-cms.git httpd/${INSTANCE_FOLDER}/htdocs
+fi
 
 echo "Joomla PR code placed in the instance folder in the php${PHP_VERSION} container."
 
@@ -57,3 +63,7 @@ mysql --user=root --password=${DB_PASSWORD} --host=127.0.0.1 ${DB_NAME} < httpd/
 mysql --user=root --password=${DB_PASSWORD} --host=127.0.0.1 ${DB_NAME} < httpd/${INSTANCE_FOLDER}/htdocs/installation/sql/mysql/users.sql
 
 echo "Database ${DB_NAME} and tables created, and data imported to the database."
+
+rm -R httpd/${INSTANCE_FOLDER}/htdocs/installation
+
+echo "Installation folder removed."
