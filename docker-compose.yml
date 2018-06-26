@@ -516,9 +516,8 @@ services:
 
     environment:
 
-      - VIRTUAL_HOST=~^70.*\.testing\.redhost\.dk$$
-      #- LETSENCRYPT_HOST=70*.testing.redhost.dk
-      #- LETSENCRYPT_EMAIL=ricardo@redweb.dk
+      - VIRTUAL_HOST=~^70.*\.domain$$
+
       ##
       ## Debug/Logging
       ##
@@ -613,9 +612,7 @@ services:
 
     environment:
 
-      - VIRTUAL_HOST=~^(www\.)*testing\.redhost\.dk$$,~^71.*\.testing\.redhost\.dk$$
-      - LETSENCRYPT_HOST=www.testing.redhost.dk,testing.redhost.dk
-      - LETSENCRYPT_EMAIL=ricardo@redweb.dk
+      - VIRTUAL_HOST=~^71.*\.domain$$
 
       ##
       ## Debug/Logging
@@ -711,9 +708,7 @@ services:
 
     environment:
 
-      - VIRTUAL_HOST=~^72.*\.testing\.redhost\.dk$$
-      #- LETSENCRYPT_HOST=56*.testing.redhost.dk
-      #- LETSENCRYPT_EMAIL=ricardo@redweb.dk
+      - VIRTUAL_HOST=~^72.*\.domain$$
 
       ##
       ## Debug/Logging
